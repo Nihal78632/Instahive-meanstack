@@ -1,0 +1,140 @@
+ <!-- ======= Header ======= -->
+ <header id="header" class="fixed-top d-flex align-items-cente">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+
+      <h1 class="logo me-auto me-lg-0"><img width="70px" height="90px" src="assets\images\1.png" alt=""> <span style="font-family: 'Solway', serif;color: white;">Insta-hive</span></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          
+          <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
+        
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      <a routerLink="register" class="book-a-table-btn scrollto d-none d-lg-flex">Join Us Now</a>
+
+    </div>
+  </header><!-- End Header -->
+
+<video autoplay muted loop id="myVideo">
+    <source src="/assets/video/video.mp4" type="video/mp4">
+    
+  </video>
+
+<div class="parentdiv mt-4 d-flex">
+    <div class="leftdiv">
+
+        <img height="80px" width="100px" src="assets\images\1.png" alt="no image">
+        <h1><strong>Register</strong></h1>
+        <h5>Join gazillions of people online</h5>
+
+        <!-- adding form -->
+
+       <form [formGroup]="registerform" (ngSubmit)="register()"> 
+        <!-- name -->
+        <input class=" mt-2" formControlName="name"  type="text" id="name" placeholder="Name" name="name" required >
+        <div class="text-danger" *ngIf="registerform.get('name')?.errors && registerform.get('name')?.touched">Invalid name</div>
+        <!-- email -->
+        <input class=" mt-2" email  formControlName="email"  type="text" id="email" name="email" >
+        <div class="text-danger" *ngIf="registerform.get('email')?.errors && registerform.get('email')?.touched">Invalid email</div>
+
+        <!-- password -->
+        <input class="mt-2"  type="password" formControlName="password" id="password" placeholder="Password" name="password" required >
+        <div class="text-danger" *ngIf="registerform.get('password')?.errors && registerform.get('password')?.touched">Invalid password</div>
+
+        <!-- IMAGE -->
+        <input style="display: none;"    (change)="uploadimage($event)" accept="image/jpeg,image/png"  type="file" #uploadImage   name="image" required >
+
+        <div>
+          <button type="button" class="btn mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="uploadImage.click()" style="background:#525053 ;">Select Image</button>
+          
+        </div>
+        
+          
+        <button type="submit"    class="btn mt-3 mb-2">Register</button> <br>
+        Already a member? <a routerLink="">Sign in</a>
+    </form>  
+
+
+      
+    </div>
+    <div class="rightdiv">
+        <div class="contentleft" style="color: rgb(255, 255, 255);">
+            <h2>Join the club</h2>
+            <p>Connect With Your Friends Online. Join The Instahive Community</p>
+            <br>
+           <div class="item"> <img style="border: 2px solid; padding: 5px; border-radius: 10px; " width="40px" height="40px" src="https://cdn-icons-png.flaticon.com/512/4372/4372820.png" alt=""><span style="margin-left: 10px;font-size: 20px;">Community</span><h5 class="itemtext" style="margin-left: 60px; padding-bottom: -30px;">Be one among the community</h5></div>
+           <div class="item"> <img style="border: 2px solid; padding: 5px; border-radius: 10px; " width="40px" height="40px" src="https://static.vecteezy.com/system/resources/thumbnails/000/567/055/small/vector60-2428-01.jpg" alt=""><span style="margin-left: 10px;font-size: 20px;">Friends</span><h5 class="itemtext" style="margin-left: 60px; padding-bottom: -30px;">Communicate with friends</h5></div>
+           <div class="item"> <img style="border: 2px solid; padding: 5px; border-radius: 10px; " width="40px" height="40px" src="https://i.pinimg.com/474x/fd/b0/13/fdb01354a7f787c8d3191c8759c7d428.jpg" alt=""><span style="margin-left: 10px;font-size: 20px;">Global</span><h5 class="itemtext" style="margin-left: 60px; padding-bottom: -30px;">Keep in touch with world</h5></div>
+        </div>
+        
+
+    </div>
+</div>
+<div class="items d-flex">
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li>Help</li>
+    </ul>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure that you want to upload this image?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <img width="70px" height="70px" *ngIf="bannerImageSrc" [src]="bannerImageSrc" alt="">
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" style="background:linear-gradient(to right,#810af1,rgb(242, 173, 246)) ;" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="wholecontainer">
+    <div class="login-container">
+        <h1>Instagram Clone</h1>
+        <form id="login-form">
+            <input name="input1" [(ngModel)]="email" type="text" id="username" placeholder="Username/Email">
+            <input name="input2" [(ngModel)]="password" type="password" id="password" placeholder="Password">
+            <button type="submit" (click)="login()">Login</button>
+            <a href="#">Forgot Password?</a>
+        </form> 
+        <p>Don't have an account? <a href="/register">Sign up</a></p>
+    </div>
+</div> -->
+

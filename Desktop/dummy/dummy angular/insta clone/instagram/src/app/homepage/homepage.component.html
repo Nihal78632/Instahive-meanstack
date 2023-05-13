@@ -1,0 +1,251 @@
+<mat-sidenav-container class="maincontainer" style="background-color: rgba(158, 157, 159, 0.08);
+" class="example-container">
+
+<!-- left nav -->
+  <mat-sidenav  class="leftsidenav" style="width: 270px;" opened mode="side">
+    <div class="sidenavtop" style="text-align: center;">
+      <div class="icon" style="text-align: center;">
+        <img style="margin-top: 20px;" width="100px" src="assets\images\1.png" alt="">
+        <h1>Instahive</h1>
+        <h6>Social Network</h6>
+      </div>
+
+
+      <div class="middlenav">
+        <img width="100px" height="100px" style="border-radius: 50%; margin: 20px;box-shadow: 2px 2px 2px;"
+          [src]="userDetails?.image" alt="">
+        <h3 style="color: rgb(0, 11, 8); font-weight: 600;">{{userDetails?.name.toUpperCase()}}</h3>
+        <h5>Friends {{userDetails?.friends.length}}</h5>
+
+
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav style="background-color: rgba(157, 158, 159, 0.08);" opened mode="side" position="end">
+
+    <!-- //navbar -->
+    <nav id="sidenavtop" class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+
+          </li>
+          <!-- logout -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+              <img style="border-radius: 50%; margin-left: 260px;" width="40" height="40" src={{userDetails?.image}}
+                alt="">
+            </a>
+
+            
+            <ul style="margin-left: 230px;" class="dropdown-menu">
+              <li>
+                <div  class="dropdown-item btn" (click)="logout()">Logout</div>
+              </li>
+
+            </ul>
+          </li>
+        </ul>
+
+
+
+
+
+
+      </div>
+    </nav>
+    <mat-divider></mat-divider>
+
+<!-- friend list -->
+    <div  class="rightsidenav">
+      <h3>Friends</h3>
+      <div class="frndbar" *ngFor="let elem of friends"><input onclick="openForm()" (click)="getmessage(elem.name)
+
+          " type="button" class="frndbtn" value={{elem.name}}><img class="frndimg" src={{elem.image}} alt=""></div>
+
+    </div>
+
+    <div class="footer">
+      <ul>
+        <div class="conent">
+          <li>Home</li>
+        </div>
+        <div>
+          <li>About us</li>
+        </div>
+        <div>
+          <li>FAQs</li>
+        </div>
+        <div>
+          <li>Blog</li>
+        </div>
+      </ul>
+    </div>
+  </mat-sidenav>
+
+  <!-- //nav-bar -->
+  <nav id="navbarr" class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="navbarr"  class="container-fluid">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+
+
+          <!-- Request section -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Requests
+            </a>
+            <ul class="dropdown-menu">
+
+              <div *ngFor="let elem of requests">
+                <div *ngIf="userDetails.requests.length>0"><li  class="dropdown-item"><span class="me-2">{{elem.name}}</span><img class="me-2" style="border-radius: 50%;" height="40" width="40" src={{elem.image}} alt=""><button (click)="acceptreq(elem.name,elem.image)" id="rqstbtn" class="btn btn-primary me-2">Accept</button> <button (click)="delreq(elem.name)" id="rqstbtn" class="btn btn-primary">Decline</button></li></div>
+              
+
+              </div>
+              <div *ngIf="requests?.length<1">
+                <li class="dropdown-item"><span>No Requests</span></li>
+              </div>
+
+
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <form class="navbar-search">
+        <input name="search" (keyup)="search($event)" type="text"  placeholder="Search...">
+        <input type="submit" value="Search">
+      </form>
+
+    </div>
+  </nav>
+  <mat-divider></mat-divider>
+
+  <!-- posting -->
+
+  <div class="posting">
+    <img style="border-radius: 50%; margin-left: 10px;margin-top: 10px;" width="40" height="40" src={{userDetails?.image}}
+    alt="">
+   <div  > <input style="position: relative; top:-40px;left: 60px; width: 400px; border-radius: 50px;"  class="form-control" type="text" (click)="modalclick.click()" placeholder="Whats on your mind?"></div>
+   <mat-divider style="margin-top: -30px;"></mat-divider>
+   <div class="subtext d-flex">
+     <div style="margin-left: 40px;"><img class="postimg"  src="https://www.freeiconspng.com/thumbs/video-icon/video-icon-1.png" alt=""><span class="posttext" ><button class="subbutton" data-bs-toggle="modal" #modalclick data-bs-target="#exampleModal">Live video</button></span></div>
+     <div style="margin-left: 80px;"><img class="postimg" src="https://toppng.com/uploads/preview/camera-icon-free-download-icon-camera-11563268482iwv1vtz2al.png" alt=""><span class="posttext"><button class="subbutton" data-bs-toggle="modal" data-bs-target="#exampleModal">Photo</button></span></div>
+     <div style="margin-left: 100px;"><img class="postimg" src="https://img.favpng.com/14/19/5/face-with-tears-of-joy-emoji-heart-love-smile-png-favpng-jBwZY3JjJjzrBNufMY0j670Bx.jpg" alt=""><span class="posttext"><button class="subbutton" data-bs-toggle="modal" data-bs-target="#exampleModal" >Feeling/Activity</button></span></div>
+   
+    
+  
+  </div>
+    
+  </div>
+<!-- tab -->
+  <div class="tab">
+    <button [id]='tab1active'  (click)="tabs1election()" >Friend Suggestions</button>
+    <button [id]='tab2active'  (click)="tab2selection()" >Feed</button>
+    
+  </div>
+
+<!-- friend suggestion -->
+
+  <div *ngIf="tabchange==true" class="main" style="height: 100%;">
+    <div class="suggestions row">
+      <div *ngFor="let contact of friendSuggestions | filter : searchkey :'name'" class="box col-6 mb-5 mt-5">
+
+        <img height="110px" width="110px" src={{contact.image}} alt="">
+        <h2>{{contact.name.toUpperCase()}}</h2>
+        <h5>friends {{contact.friends.length}}</h5>
+
+        <button style="border-radius: 50px;" (click)="addtorequest(contact.name,contact.image)" class="addfrnd">Add Friend</button>
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+  <!-- all posts -->
+
+  <div class="postcontainer mt-5"  *ngIf="tabchange==false">
+   
+
+    <div *ngFor="let post of posts" class="post mt-5" >
+      <div class="toppart"> <img style="border-radius: 50%; margin-left: 10px;margin-top: 10px;" width="40" height="40" [src]="post.image" alt="No image"> <span class="ms-2"><b>{{post.name}}</b> posted</span></div>
+      <div>
+        <p style="position: relative;top:10px;margin-left: 5px;" *ngIf="post.posttext">{{post?.posttext}}</p>
+        <img style="margin-bottom: 40px; margin-top: 10px;" *ngIf="post.postimage" width="550px"  [src]="post?.postimage" alt="No image">
+        <mat-divider></mat-divider>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+</mat-sidenav-container>
+<!-- chatbox -->
+<button class="open-button" style="display: none;" onclick="openForm()">Chat</button>
+
+<div class="chat-popup " id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>  <span style="font-size: 20px;">{{toname}}</span></h1>
+    <h3 style="text-align: center;color: rgb(218, 15, 249);"></h3>
+
+
+    <div class="chats ">
+      <table>
+        <tr class="chats" *ngFor="let elem of chats">
+          <td>{{elem.name}}:{{elem.message}}</td>
+        </tr>
+      </table>
+    </div>
+    <textarea name="textareaa" [(ngModel)]="sendchats" cols="30" rows="10"></textarea>
+
+
+    <button type="submit" class="btn" (click)="sendmessage()">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+
+<!-- modal -->
+<div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Create Post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img style="border-radius: 50%; margin-left: 10px;margin-top: 10px;" width="40" height="40" src={{userDetails?.image}}
+    alt=""><span style="position: relative; top: 5px;left: 5px;">{{userDetails?.name}}</span>
+
+    <div>
+      <textarea class="mt-3" style="border: none;" [(ngModel)]="posttext" placeholder="Whats on your mind?" name="" id="" cols="60" rows="5"></textarea>
+
+    </div>
+    <div>
+      <span>Add Image</span> <input #upload (change)="uploadimage($event)" style="display: none;" type="file">
+      <div *ngIf="imageSrc"><img width="300px" style="aspect-ratio: 3/2;"  [src]="imageSrc" alt=""></div>
+      <button style="border: none;padding-right: 5px;" (click)="upload.click()"><img width="30px" class="postimg" style="border: none;" src="https://toppng.com/uploads/preview/camera-icon-free-download-icon-camera-11563268482iwv1vtz2al.png" alt=""></button>
+    </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="imageSrc=''">Close</button>
+        <button type="button" class="btn btn-primary"   (click)="post()">Post</button>
+      </div>
+    </div>
+  </div>
+</div>

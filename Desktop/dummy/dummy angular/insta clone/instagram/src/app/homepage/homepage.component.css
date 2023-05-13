@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Gloock&family=Labrada:wght@200;300&family=Solway&display=swap');
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+}
+
+
+
+h1 {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+.friends-list {
+    margin-top: 2rem;
+}
+
+.friends-list h2 {
+    text-align: center;
+}
+
+.friends-list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.friends-list ul li {
+    margin-right: 1rem;
+}
+
+.friends-list ul li img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.friends-list ul li span {
+    display: block;
+    text-align: center;
+}
+
+.feed {
+    margin-top: 2rem;
+}
+
+.feed h2 {
+    text-align: center;
+}
+
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+  }
+  
+  /* The popup chat - hidden by default */
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #ca07e8;
+    z-index: 10;
+    
+   
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+    overflow: auto;
+    height: 400px;
+    
+  }
+  
+  /* Full-width textarea */
+  .form-container .textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+    
+  }
+  
+  
+  /* When the textarea gets focus, do something */
+  .form-container .textarea:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/send button */
+  .form-container .btn {
+    background-color: #810af1;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: rgb(128, 123, 126);
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+  .chats{
+    
+    
+   overflow: auto;
+   text-align: justify;
+  }
+  .sidenavtop{
+    background: linear-gradient(to right,rgb(88, 86, 86),rgb(75, 57, 73));
+    height: 350px;
+  }
+  .middlenav{
+    background-color: #fff;
+    margin-top: 10px;
+    width: 200px;
+    margin-left: 30px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px;
+  }
+  .leftsidenav{
+    background-color: rgb(208, 217, 227);
+
+  }
+  .rightsidenav{
+    background-color: rgb(245, 228, 247);
+    height: 400px;
+    width:300px;
+    margin-right: 20px;
+    margin-left:20px ;
+    border-radius: 10px;
+    margin-top: 100px;
+    text-align: center;
+    text-decoration: underline;
+  }
+  
+  .footer{
+    
+    text-decoration: none;
+    justify-content: center;
+    display: flex;
+    
+  }
+
+  
+.suggestions{
+  margin-top: 140px;
+ 
+  
+  width: 600px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  overflow: auto;
+  
+  
+}
+.suggestions::-webkit-scrollbar {
+  display: none;
+}
+.chats::-webkit-scrollbar {
+  display: none;
+}
+
+.box{
+ 
+  width: 270px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 3px 1px 1px rgba(0,0,0,0.11), 
+              3px 2px 2px rgba(0,0,0,0.11), 
+              3px 4px 4px rgba(0,0,0,0.11), 
+              3px 8px 8px rgba(0,0,0,0.11), 
+              3px 16px 16px rgba(0,0,0,0.11), 
+              3px 32px 32px rgba(0,0,0,0.11);
+  text-align: center;
+  
+}
+.box img{
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 2px 2px 2px;
+}
+.box h2{
+  font-weight: 600;
+  margin-top: 20px;
+}
+.addfrnd{
+  border-color: #810af1;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.addfrnd:hover{
+  transition: .9s;
+  background-color: #810af1;
+  color: white;
+}
+.icon h1,h6{
+  color: white;
+  font-family: 'Solway', serif;
+
+}
+.icon h6{
+  margin-top: -20px;
+}
+.frndimg{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+              0 2px 2px rgba(0,0,0,0.11), 
+              0 4px 4px rgba(0,0,0,0.11), 
+              0 8px 8px rgba(0,0,0,0.11), 
+              0 16px 16px rgba(0,0,0,0.11), 
+              0 32px 32px rgba(0,0,0,0.11);
+}
+.frndbtn{
+  background: rgb(255, 253, 252);
+  width: 150px;
+  border: none;
+  
+  border-radius: 5px;
+  height: 30px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+              0 2px 2px rgba(0,0,0,0.11), 
+              0 4px 4px rgba(0,0,0,0.11), 
+              0 8px 8px rgba(0,0,0,0.11), 
+              0 16px 16px rgba(0,0,0,0.11), 
+              0 32px 32px rgba(0,0,0,0.11);
+  
+}
+.frndbar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+ 
+}
+
+.navbar-search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+ 
+  
+}
+.navbar-search input[type=text] {
+  border: none;
+  width: 300px;
+  padding: 5px;
+  margin-left: 10px;
+  font-size: 16px;
+}
+.navbar-search input[type=submit] {
+  background-color: #810af1;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+#sidenavtop{
+  height:56px;
+  position: fixed;
+}
+#rqstbtn{
+  background-color: #810af1;
+  
+
+}
+.posting{
+  background-color: white;
+  height: 100px;
+  margin-top: 20px;
+  border-radius: 10px;
+  margin-left: 20px;
+  width: 600px;
+
+}
+.main{
+  position: relative;
+  top:-60px;
+  width: 620px;
+  background: white;
+  margin-left: 10px;
+  
+  
+  border-radius: 10px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+  0 2px 2px rgba(0,0,0,0.11), 
+  0 4px 4px rgba(0,0,0,0.11), 
+  0 8px 8px rgba(0,0,0,0.11), 
+  0 16px 16px rgba(0,0,0,0.11), 
+  0 32px 32px rgba(0,0,0,0.11);
+ 
+
+}
+.postimg{
+  margin-top: 5px;
+  margin-left: 5px;
+  width:30px;
+  
+  
+
+
+}
+.posttext{
+  margin-left: 5px;
+  position: relative;
+  top:5px
+
+}
+.subtext{
+  display: flex;
+  
+  
+}
+.subbutton{
+  border: none;
+  background-color: white;
+}
+
+.post{
+  border-radius: 10px;
+  position: relative;
+  
+  background-color: white;
+   height: 100%;
+   width: 550px;
+    margin-left: 35px;
+     margin-top: 20px;
+     overflow-y: hidden;
+
+}
+.postcontainer{
+  position: relative;
+  top:-30px;
+  width: 620px;
+  
+  margin-left: 10px;
+  height: 100%;
+  
+  
+ 
+  
+  
+  
+}
+.maincontainer::-webkit-scrollbar {
+  display: none;
+}
+.postcontainer::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+/* Style the tab */
+.tab {
+  width: 100%;
+  margin-top: 10px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #a146f6;
+}
+
+
+#tabselected{
+  background-color: #810af1;
+
+}
+   
+
